@@ -38,7 +38,7 @@
 		</hgroup>
 
 		
-		<p class="header-subtitle">如果没能一次成功，那就叫它1.0版吧！#副标题</p>
+		<p class="header-subtitle">如果没能一次成功，那就叫它1.0版吧!</p>
 		
 
 		
@@ -76,7 +76,7 @@
 						<li>Links</li>
 						
 						
-						<li>About</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -113,7 +113,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						
+						<a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/内存泄漏/" style="font-size: 10px;">内存泄漏</a>
 					</div>
 				</section>
 				
@@ -168,7 +168,7 @@
 			  <h1 class="header-author">huijian.xhj</h1>
 			</hgroup>
 			
-			<p class="header-subtitle">如果没能一次成功，那就叫它1.0版吧！#副标题</p>
+			<p class="header-subtitle">如果没能一次成功，那就叫它1.0版吧!</p>
 			
 			<nav class="header-menu">
 				<ul>
@@ -270,7 +270,7 @@ for (int i = 1; i &lt; 100; i++) {
 <p>  集合类如果仅仅有添加元素的方法，而没有相应的删除机制，导致内存被占用。如果这个集合类是全局性的变量 (比如类中的静态属性，全局性的 map 等即有静态引用或 final 一直指向它)，那么没有相应的删除机制，很可能导致集合所占用的内存只增不减。比如上面的典型例子就是其中一种情况，当然实际上我们在项目中肯定不会写这么 2B 的代码，但稍不注意还是很容易出现这种情况，比如我们都喜欢通过 HashMap 做一些缓存之类的事，这种情况就要多留一些心眼。</p>
 </li>
 <li><p>单例造成的内存泄漏</p>
-<p>  由于单例的静态特性使得其生命周期跟应用的生命周期一样长，所以如果使用不恰当的话，很容易造成内存泄漏。比如下面一个典型的例子，</p>
+<p>由于单例的静态特性使得其生命周期跟应用的生命周期一样长，所以如果使用不恰当的话，很容易造成内存泄漏。比如下面一个典型的例子，</p>
 </li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">public class AppManager &#123;</div><div class="line">private static AppManager instance;</div><div class="line">private Context context;</div><div class="line">private AppManager(Context context) &#123;</div><div class="line">this.context = context;</div><div class="line">&#125;</div><div class="line">public static AppManager getInstance(Context context) &#123;</div><div class="line">if (instance == null) &#123;</div><div class="line">instance = new AppManager(context);</div><div class="line">&#125;</div><div class="line">return instance;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -285,8 +285,8 @@ for (int i = 1; i &lt; 100; i++) {
 <li><p>匿名内部类/非静态内部类和异步线程</p>
 <ul>
 <li><p>非静态内部类创建静态实例造成的内存泄漏</p>
-<p>  有的时候我们可能会在启动频繁的Activity中，为了避免重复创建相同的数据资源，可能会出现这种写法：</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">public class MainActivity extends AppCompatActivity &#123;</div><div class="line">private static TestResource mResource = null;</div><div class="line">@Override</div><div class="line">protected void onCreate(Bundle savedInstanceState) &#123;</div><div class="line">super.onCreate(savedInstanceState);</div><div class="line">setContentView(R.layout.activity_main);</div><div class="line">if(mManager == null)&#123;</div><div class="line">mManager = new TestResource();</div><div class="line">&#125;</div><div class="line">//...</div><div class="line">&#125;</div><div class="line">class TestResource &#123;</div><div class="line">//...</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>有的时候我们可能会在启动频繁的Activity中，为了避免重复创建相同的数据资源，可能会出现这种写法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">public class MainActivity extends AppCompatActivity &#123;</div><div class="line">private static TestResource mResource = null;</div><div class="line">@Override</div><div class="line">protected void onCreate(Bundle savedInstanceState) &#123;</div><div class="line">super.onCreate(savedInstanceState);</div><div class="line">setContentView(R.layout.activity_main);</div><div class="line">if(mManager == null)&#123;</div><div class="line">mManager = new TestResource();</div><div class="line">&#125;</div><div class="line">//...</div><div class="line">&#125;</div><div class="line">class TestResource &#123;</div><div class="line">//...</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -297,8 +297,8 @@ for (int i = 1; i &lt; 100; i++) {
 <p><strong>其中：</strong> NO1表示 Application 和 Service 可以启动一个 Activity，不过需要创建一个新的 task 任务队列。而对于 Dialog 而言，只有在 Activity 中才能创建</p>
 <ul>
 <li><p>匿名内部类</p>
-<p>android开发经常会继承实现Activity/Fragment/View，此时如果你使用了匿名类，并被异步线程持有了，那要小心了，如果没有任何措施这样一定会导致泄露</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">   public class MainActivity extends Activity &#123;</div><div class="line">    ...</div><div class="line">    Runnable ref1 = new MyRunable();</div><div class="line">    Runnable ref2 = new Runnable() &#123;</div><div class="line">        @Override</div><div class="line">        public void run() &#123;</div><div class="line"></div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">       ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p> android开发经常会继承实现Activity/Fragment/View，此时如果你使用了匿名类，并被异步线程持有了，那要小心了，如果没有任何措施这样一定会导致泄露</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">   public class MainActivity extends Activity &#123;</div><div class="line">    ...</div><div class="line">    Runnable ref1 = new MyRunable();</div><div class="line">    Runnable ref2 = new Runnable() &#123;</div><div class="line">        @Override</div><div class="line">        public void run() &#123;</div><div class="line"></div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">       ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>ref1和ref2的区别是，ref2使用了匿名内部类。我们来看看运行时这两个引用的内存：</p>
@@ -306,9 +306,9 @@ for (int i = 1; i &lt; 100; i++) {
 <p>可以看到，ref1没什么特别的。<br>但ref2这个匿名类的实现对象里面多了一个引用：<br>this$0这个引用指向MainActivity.this，也就是说当前的MainActivity实例会被ref2持有，如果将这个引用再传入一个异步线程，此线程和此Acitivity生命周期不一致的时候，就造成了Activity的泄露。</p>
 <ul>
 <li><p>Handler 造成的内存泄漏</p>
-<p>Handler 的使用造成的内存泄漏问题应该说是最为常见了，很多时候我们为了避免 ANR 而不在主线程进行耗时操作，在处理网络任务或者封装一些请求回调等api都借助Handler来处理，但 Handler 不是万能的，对于 Handler 的使用代码编写一不规范即有可能造成内存泄漏。另外，我们知道 Handler、Message 和 MessageQueue 都是相互关联在一起的，万一 Handler 发送的 Message 尚未被处理，则该 Message 及发送它的 Handler 对象将被线程 MessageQueue 一直持有。<br>由于 Handler 属于 TLS(Thread Local Storage) 变量, 生命周期和 Activity 是不一致的。因此这种实现方式一般很难保证跟 View 或者 Activity 的生命周期保持一致，故很容易导致无法正确释放。</p>
-<p>举个例子：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">   public class SampleActivity extends Activity &#123;</div><div class="line"></div><div class="line">  private final Handler mLeakyHandler = new Handler() &#123;</div><div class="line">    @Override</div><div class="line">    public void handleMessage(Message msg) &#123;</div><div class="line">      // ...</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  @Override</div><div class="line">  protected void onCreate(Bundle savedInstanceState) &#123;</div><div class="line">    super.onCreate(savedInstanceState);</div><div class="line"></div><div class="line">    // Post a message and delay its execution for 10 minutes.</div><div class="line">    mLeakyHandler.postDelayed(new Runnable() &#123;</div><div class="line">      @Override</div><div class="line">      public void run() &#123; /* ... */ &#125;</div><div class="line">    &#125;, 1000 * 60 * 10);</div><div class="line"></div><div class="line">    // Go back to the previous Activity.</div><div class="line">    finish();</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p> Handler 的使用造成的内存泄漏问题应该说是最为常见了，很多时候我们为了避免 ANR 而不在主线程进行耗时操作，在处理网络任务或者封装一些请求回调等api都借助Handler来处理，但 Handler 不是万能的，对于 Handler 的使用代码编写一不规范即有可能造成内存泄漏。另外，我们知道 Handler、Message 和 MessageQueue 都是相互关联在一起的，万一 Handler 发送的 Message 尚未被处理，则该 Message 及发送它的 Handler 对象将被线程 MessageQueue 一直持有。<br> 由于 Handler 属于 TLS(Thread Local Storage) 变量, 生命周期和 Activity 是不一致的。因此这种实现方式一般很难保证跟 View 或者 Activity 的生命周期保持一致，故很容易导致无法正确释放。</p>
+<p> 举个例子：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">   public class SampleActivity extends Activity &#123;</div><div class="line"></div><div class="line">  private final Handler mLeakyHandler = new Handler() &#123;</div><div class="line">    @Override</div><div class="line">    public void handleMessage(Message msg) &#123;</div><div class="line">      // ...</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  @Override</div><div class="line">  protected void onCreate(Bundle savedInstanceState) &#123;</div><div class="line">    super.onCreate(savedInstanceState);</div><div class="line"></div><div class="line">    // Post a message and delay its execution for 10 minutes.</div><div class="line">    mLeakyHandler.postDelayed(new Runnable() &#123;</div><div class="line">      @Override</div><div class="line">      public void run() &#123; /* ... */ &#125;</div><div class="line">    &#125;, 1000 * 60 * 10);</div><div class="line"></div><div class="line">    // Go back to the previous Activity.</div><div class="line">    finish();</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>在该 SampleActivity 中声明了一个延迟10分钟执行的消息 Message，mLeakyHandler 将其 push 进了消息队列 MessageQueue 里。当该 Activity 被 finish() 掉时，延迟执行任务的 Message 还会继续存在于主线程中，它持有该 Activity 的 Handler 引用，所以此时 finish() 掉的 Activity 就不会被回收了从而造成内存泄漏（因 Handler 为非静态内部类，它会持有外部类的引用，在这里就是指 SampleActivity）。</p>
@@ -333,80 +333,74 @@ for (int i = 1; i &lt; 100; i++) {
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">public final void removeCallbacks(Runnable r);</div><div class="line"></div><div class="line">public final void removeCallbacks(Runnable r, Object token);</div><div class="line"></div><div class="line">public final void removeCallbacksAndMessages(Object token);</div><div class="line"></div><div class="line">public final void removeMessages(int what);</div><div class="line"></div><div class="line">public final void removeMessages(int what, Object object);</div></pre></td></tr></table></figure>
 <ul>
 <li><p>尽量避免使用 static 成员变量</p>
-<p>如果成员变量被声明为 static，那我们都知道其生命周期将与整个app进程生命周期一样。</p>
-<p>这会导致一系列问题，如果你的app进程设计上是长驻内存的，那即使app切到后台，这部分内存也不会被释放。按照现在手机app内存管理机制，占内存较大的后台进程将优先回收，yi’wei如果此app做过进程互保保活，那会造成app在后台频繁重启。当手机安装了你参与开发的app以后一夜时间手机被消耗空了电量、流量，你的app不得不被用户卸载或者静默。<br>这里修复的方法是：</p>
+<p> 如果成员变量被声明为 static，那我们都知道其生命周期将与整个app进程生命周期一样。</p>
+<p> 这会导致一系列问题，如果你的app进程设计上是长驻内存的，那即使app切到后台，这部分内存也不会被释放。按照现在手机app内存管理机制，占内存较大的后台进程将优先回收，yi’wei如果此app做过进程互保保活，那会造成app在后台频繁重启。当手机安装了你参与开发的app以后一夜时间手机被消耗空了电量、流量，你的app不得不被用户卸载或者静默。<br>这里修复的方法是：</p>
 </li>
 </ul>
 <p>不要在类初始时初始化静态成员。可以考虑lazy初始化。<br>架构设计上要思考是否真的有必要这样做，尽量避免。如果架构需要这么设计，那么此对象的生命周期你有责任管理起来。</p>
 <ul>
 <li><p>避免 override finalize()</p>
-<p>1、finalize 方法被执行的时间不确定，不能依赖与它来释放紧缺的资源。时间不确定的原因是：</p>
-<ul>
-<li><p>虚拟机调用GC的时间不确定</p>
-</li>
-<li><p>Finalize daemon线程被调度到的时间不确定</p>
-</li>
-</ul>
-<p>2、finalize 方法只会被执行一次，即使对象被复活，如果已经执行过了 finalize 方法，再次被 GC 时也不会再执行了，原因是：</p>
-<p>含有 finalize 方法的 object 是在 new 的时候由虚拟机生成了一个 finalize reference 在来引用到该Object的，而在 finalize 方法执行的时候，该 object 所对应的 finalize Reference 会被释放掉，即使在这个时候把该 object 复活(即用强引用引用住该 object )，再第二次被 GC 的时候由于没有了 finalize reference 与之对应，所以 finalize 方法不会再执行。</p>
-<p>3、含有Finalize方法的object需要至少经过两轮GC才有可能被释放。</p>
+<p> 1、finalize 方法被执行的时间不确定，不能依赖与它来释放紧缺的资源。时间不确定的原因是：</p>
+<pre><code>*   虚拟机调用GC的时间不确定
+
+*  Finalize daemon线程被调度到的时间不确定
+</code></pre><p> 2、finalize 方法只会被执行一次，即使对象被复活，如果已经执行过了 finalize 方法，再次被 GC 时也不会再执行了，原因是：</p>
+<p> 含有 finalize 方法的 object 是在 new 的时候由虚拟机生成了一个 finalize reference 在来引用到该Object的，而在 finalize 方法执行的时候，该 object 所对应的 finalize Reference 会被释放掉，即使在这个时候把该 object 复活(即用强引用引用住该 object )，再第二次被 GC 的时候由于没有了 finalize reference 与之对应，所以 finalize 方法不会再执行。</p>
+<p> 3、含有Finalize方法的object需要至少经过两轮GC才有可能被释放。</p>
 <p>详情见这里 <a href="http://blog.csdn.net/kai_gong/article/details/24188803" target="_blank" rel="external">深入分析过dalvik的代码</a></p>
 </li>
 <li><p>资源未关闭造成的内存泄漏</p>
-<p>对于使用了BraodcastReceiver，ContentObserver，File，游标 Cursor，Stream，Bitmap等资源的使用，应该在Activity销毁时及时关闭或者注销，否则这些资源将不会被回收，造成内存泄漏。</p>
+<p> 对于使用了BraodcastReceiver，ContentObserver，File，游标 Cursor，Stream，Bitmap等资源的使用，应该在Activity销毁时及时关闭或者注销，否则这些资源将不会被回收，造成内存泄漏。</p>
 </li>
 <li><p>一些不良代码造成的内存压力</p>
-<p>有些代码并不造成内存泄露，但是它们，或是对没使用的内存没进行有效及时的释放，或是没有有效的利用已有的对象而是频繁的申请新内存。</p>
-<p>比如：</p>
-<ul>
-<li><p>Bitmap 没调用 recycle()方法，对于 Bitmap 对象在不使用时,我们应该先调用 recycle() 释放内存，然后才它设置为 null. 因为加载 Bitmap 对象的内存空间，一部分是 java 的，一部分 C   的（因为 Bitmap 分配的底层是通过 JNI 调用的 )。 而这个 recyle() 就是针对 C 部分的内存释放。</p>
-</li>
-<li><p>构造 Adapter 时，没有使用缓存的 convertView ,每次都在创建新的 converView。这里推荐使用 ViewHolder。</p>
-</li>
-</ul>
-</li>
+<p> 有些代码并不造成内存泄露，但是它们，或是对没使用的内存没进行有效及时的释放，或是没有有效的利用已有的对象而是频繁的申请新内存。</p>
+<p> 比如：</p>
+<pre><code>- Bitmap 没调用 recycle()方法，对于 Bitmap 对象在不使用时,我们应该先调用 recycle() 释放内存，然后才它设置为 null. 因为加载 Bitmap 对象的内存空间，一部分是 java 的，一部分 C   的（因为 Bitmap 分配的底层是通过 JNI 调用的 )。 而这个 recyle() 就是针对 C 部分的内存释放。
+
+- 构造 Adapter 时，没有使用缓存的 convertView ,每次都在创建新的 converView。这里推荐使用 ViewHolder。
+</code></pre></li>
 </ul>
 <h3 id="工具分析"><a href="#工具分析" class="headerlink" title="工具分析"></a>工具分析</h3><p>Java 内存泄漏的分析工具有很多，但众所周知的要数 MAT(Memory Analysis Tools) 和 YourKit 了。由于篇幅问题，我这里就只对 <a href="http://www.eclipse.org/mat/" target="_blank" rel="external">MAT</a> 的使用做一下介绍。–&gt; <a href="http://www.ibm.com/developerworks/cn/opensource/os-cn-ecl-ma/index.html" target="_blank" rel="external">MAT 的安装</a></p>
 <ul>
 <li><p>MAT分析heap的总内存占用大小来初步判断是否存在泄露</p>
-<p>  打开 DDMS 工具，在左边 Devices 视图页面选中“Update Heap”图标，然后在右边切换到 Heap 视图，点击 Heap 视图中的“Cause GC”按钮，到此为止需检测的进程就可以被监视。</p>
-<p>  <img src="https://gw.alicdn.com/tps/TB1pdf2LVXXXXXeXXXXXXXXXXXX-690-514.jpg" alt=""></p>
-<p>  Heap视图中部有一个Type叫做data object，即数据对象，也就是我们的程序中大量存在的类类型的对象。在data object一行中有一列是“Total Size”，其值就是当前进程中所有Java数据对象的内存总量，一般情况下，这个值的大小决定了是否会有内存泄漏。可以这样判断：</p>
-<p>  进入某应用，不断的操作该应用，同时注意观察data object的Total Size值，正常情况下Total Size值都会稳定在一个有限的范围内，也就是说由于程序中的的代码良好，没有造成对象不被垃圾回收的情况。</p>
-<p>  所以说虽然我们不断的操作会不断的生成很多对象，而在虚拟机不断的进行GC的过程中，这些对象都被回收了，内存占用量会会落到一个稳定的水平；反之如果代码中存在没有释放对象引用的情况，则data object的Total Size值在每次GC后不会有明显的回落。随着操作次数的增多Total Size的值会越来越大，直到到达一个上限后导致进程被杀掉。</p>
+<p>打开 DDMS 工具，在左边 Devices 视图页面选中“Update Heap”图标，然后在右边切换到 Heap 视图，点击 Heap 视图中的“Cause GC”按钮，到此为止需检测的进程就可以被监视。</p>
+<p><img src="https://gw.alicdn.com/tps/TB1pdf2LVXXXXXeXXXXXXXXXXXX-690-514.jpg" alt=""></p>
+<p>Heap视图中部有一个Type叫做data object，即数据对象，也就是我们的程序中大量存在的类类型的对象。在data object一行中有一列是“Total Size”，其值就是当前进程中所有Java数据对象的内存总量，一般情况下，这个值的大小决定了是否会有内存泄漏。可以这样判断：</p>
+<p>进入某应用，不断的操作该应用，同时注意观察data object的Total Size值，正常情况下Total Size值都会稳定在一个有限的范围内，也就是说由于程序中的的代码良好，没有造成对象不被垃圾回收的情况。</p>
+<p>所以说虽然我们不断的操作会不断的生成很多对象，而在虚拟机不断的进行GC的过程中，这些对象都被回收了，内存占用量会会落到一个稳定的水平；反之如果代码中存在没有释放对象引用的情况，则data object的Total Size值在每次GC后不会有明显的回落。随着操作次数的增多Total Size的值会越来越大，直到到达一个上限后导致进程被杀掉。</p>
 </li>
 <li><p>MAT分析hprof来定位内存泄露的原因所在</p>
-<p>  这是出现内存泄露后使用MAT进行问题定位的有效手段。</p>
-<p>  A)Dump出内存泄露当时的内存镜像hprof，分析怀疑泄露的类：</p>
-<p>  <img src="https://gw.alicdn.com/tps/TB1r2zZLVXXXXcHXXXXXXXXXXXX-640-167.jpg" alt=""></p>
-<p>  B)分析持有此类对象引用的外部对象</p>
-<p>  <img src="https://gw.alicdn.com/tps/TB17XvOLVXXXXbiXFXXXXXXXXXX-640-90.png" alt=""></p>
-<p>  C)分析这些持有引用的对象的GC路径</p>
-<p>  <img src="https://gw.alicdn.com/tps/TB10yTwLVXXXXaRapXXXXXXXXXX-640-278.png" alt=""></p>
-<p>  D)逐个分析每个对象的GC路径是否正常</p>
-<p>  <img src="https://gw.alicdn.com/tps/TB1CWTQLVXXXXamXFXXXXXXXXXX-640-90.png" alt=""></p>
-<p>  从这个路径可以看出是一个antiRadiationUtil工具类对象持有了MainActivity的引用导致MainActivity无法释放。此时就要进入代码分析此时antiRadiationUtil的引用持有是否合理（如果antiRadiationUtil持有了MainActivity的context导致节目退出后MainActivity无法销毁，那一般都属于内存泄露了）。</p>
+<p>这是出现内存泄露后使用MAT进行问题定位的有效手段。</p>
+<p>A)Dump出内存泄露当时的内存镜像hprof，分析怀疑泄露的类：</p>
+<p><img src="https://gw.alicdn.com/tps/TB1r2zZLVXXXXcHXXXXXXXXXXXX-640-167.jpg" alt=""></p>
+<p>B)分析持有此类对象引用的外部对象</p>
+<p><img src="https://gw.alicdn.com/tps/TB17XvOLVXXXXbiXFXXXXXXXXXX-640-90.png" alt=""></p>
+<p>C)分析这些持有引用的对象的GC路径</p>
+<p><img src="https://gw.alicdn.com/tps/TB10yTwLVXXXXaRapXXXXXXXXXX-640-278.png" alt=""></p>
+<p>D)逐个分析每个对象的GC路径是否正常</p>
+<p><img src="https://gw.alicdn.com/tps/TB1CWTQLVXXXXamXFXXXXXXXXXX-640-90.png" alt=""></p>
+<p>从这个路径可以看出是一个antiRadiationUtil工具类对象持有了MainActivity的引用导致MainActivity无法释放。此时就要进入代码分析此时antiRadiationUtil的引用持有是否合理（如果antiRadiationUtil持有了MainActivity的context导致节目退出后MainActivity无法销毁，那一般都属于内存泄露了）。</p>
 </li>
 <li><p>MAT对比操作前后的hprof来定位内存泄露的根因所在</p>
-<p>  为查找内存泄漏，通常需要两个 Dump结果作对比，打开 Navigator History面板，将两个表的 Histogram结果都添加到 Compare Basket中去</p>
-<p>  A） 第一个HPROF 文件(usingFile &gt; Open Heap Dump ).</p>
-<p>  B）打开Histogram view.</p>
-<p>  C）在NavigationHistory view里 (如果看不到就从Window &gt;show view&gt;MAT- Navigation History ), 右击histogram然后选择Add to Compare Basket .</p>
-<p>  <img src="https://gw.alicdn.com/tps/TB1p1rULVXXXXbyXpXXXXXXXXXX-525-212.png" alt=""></p>
-<p>  D）打开第二个HPROF 文件然后重做步骤2和3.</p>
-<p>  E）切换到Compare Basket view, 然后点击Compare the Results (视图右上角的红色”!”图标)。</p>
-<p>  <img src="https://gw.alicdn.com/tps/TB1p0zKLVXXXXX.XVXXXXXXXXXX-640-98.png" alt=""></p>
-<p>  F）分析对比结果</p>
-<p>  <img src="https://gw.alicdn.com/tps/TB1lwDMLVXXXXcUXFXXXXXXXXXX-640-115.png" alt=""></p>
-<p>  可以看出两个hprof的数据对象对比结果。</p>
-<p>  通过这种方式可以快速定位到操作前后所持有的对象增量，从而进一步定位出当前操作导致内存泄露的具体原因是泄露了什么数据对象。</p>
-<p>  注意：</p>
-<p>  如果是用 MAT Eclipse 插件获取的 Dump文件，不需要经过转换则可在MAT中打开，Adt会自动进行转换。</p>
-<p>  而手机SDk Dump 出的文件要经过转换才能被 MAT识别，Android SDK提供了这个工具 hprof-conv (位于 sdk/tools下)</p>
-<p>  首先，要通过控制台进入到你的 android sdk tools 目录下执行以下命令：</p>
-<p>  ./hprof-conv xxx-a.hprof xxx-b.hprof</p>
-<p>  例如 hprof-conv input.hprof out.hprof</p>
-<p>  此时才能将out.hprof放在eclipse的MAT中打开。</p>
+<p>为查找内存泄漏，通常需要两个 Dump结果作对比，打开 Navigator History面板，将两个表的 Histogram结果都添加到 Compare Basket中去</p>
+<p>A） 第一个HPROF 文件(usingFile &gt; Open Heap Dump ).</p>
+<p>B）打开Histogram view.</p>
+<p>C）在NavigationHistory view里 (如果看不到就从Window &gt;show view&gt;MAT- Navigation History ), 右击histogram然后选择Add to Compare Basket .</p>
+<p><img src="https://gw.alicdn.com/tps/TB1p1rULVXXXXbyXpXXXXXXXXXX-525-212.png" alt=""></p>
+<p>D）打开第二个HPROF 文件然后重做步骤2和3.</p>
+<p>E）切换到Compare Basket view, 然后点击Compare the Results (视图右上角的红色”!”图标)。</p>
+<p><img src="https://gw.alicdn.com/tps/TB1p0zKLVXXXXX.XVXXXXXXXXXX-640-98.png" alt=""></p>
+<p>F）分析对比结果</p>
+<p><img src="https://gw.alicdn.com/tps/TB1lwDMLVXXXXcUXFXXXXXXXXXX-640-115.png" alt=""></p>
+<p>可以看出两个hprof的数据对象对比结果。</p>
+<p>通过这种方式可以快速定位到操作前后所持有的对象增量，从而进一步定位出当前操作导致内存泄露的具体原因是泄露了什么数据对象。</p>
+<p>注意：</p>
+<p>如果是用 MAT Eclipse 插件获取的 Dump文件，不需要经过转换则可在MAT中打开，Adt会自动进行转换。</p>
+<p>而手机SDk Dump 出的文件要经过转换才能被 MAT识别，Android SDK提供了这个工具 hprof-conv (位于 sdk/tools下)</p>
+<p>首先，要通过控制台进入到你的 android sdk tools 目录下执行以下命令：</p>
+<p>./hprof-conv xxx-a.hprof xxx-b.hprof</p>
+<p>例如 hprof-conv input.hprof out.hprof</p>
+<p>此时才能将out.hprof放在eclipse的MAT中打开。</p>
 </li>
 </ul>
 <p>Ok，下面将给大家介绍一个屌炸天的工具 – LeakCanary 。</p>
@@ -497,9 +491,6 @@ for (int i = 1; i &lt; 100; i++) {
 <p><a href="http://www.liaohuqiu.net/cn/posts/leak-canary-read-me/" target="_blank" rel="external">LeakCanary 中文使用说明</a></p>
 <p><a href="http://www.liaohuqiu.net/cn/posts/leak-canary/" target="_blank" rel="external">LeakCanary: 让内存泄露无所遁形</a></p>
 <p><a href="https://github.com/square/leakcanary" target="_blank" rel="external">https://github.com/square/leakcanary</a></p>
-<blockquote>
-<p>箫鉴哥 2016-01-19 13:44:26</p>
-</blockquote>
 
       
     </div>
@@ -507,6 +498,10 @@ for (int i = 1; i &lt; 100; i++) {
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/内存泄漏/">内存泄漏</a></li></ul>
+	</div>
+
       
 	<div class="article-category tagcloud">
 	<a class="article-category-link" href="/categories/Android/">Android</a>
