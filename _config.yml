@@ -4,7 +4,7 @@
 
 # Site
 title: 箫鉴哥博客 #站点名，站点左上角
-subtitle: 如果没能一次成功，那就叫它1.0版吧！#副标题
+subtitle: 如果没能一次成功，那就叫它1.0版吧!
 description: #站点描述，给搜索引擎看的
 author: huijian.xhj
 email: huijian.xhj@gmail.com
@@ -47,6 +47,8 @@ highlight:
 # Category & Tag 分类和标签设置
 default_category: uncategorized
 category_map:
+  Android: Android
+  H5&Web: Web
 tag_map:
 
 # Archives 默认值为2，如果这里都修改为1，相应页面就只会列出标题，而非全文
