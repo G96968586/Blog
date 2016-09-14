@@ -93,4 +93,4 @@ theme: yilia
 deploy:
   type: git
   repository: https://github.com/G96968586/G96968586.github.io.git
-  branch: deploy
+  branch: master
