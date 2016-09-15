@@ -55,9 +55,9 @@ tag_map:
 ## 2: Enable pagination
 ## 1: Disable pagination
 ## 0: Fully Disable
-#archive: 1
-#category: 1
-#tag: 1
+archive: 1
+category: 1
+tag: 1
 
 # Server 本地预览服务信息，默认端口是4000，有需要的话可以自己修改
 ## Hexo uses Connect as a server
