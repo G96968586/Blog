@@ -305,5 +305,3 @@ int mVolume = (int)(10 * Math.log10(amplitude));
 
 
 * [《Android 音频开发基础知识》](http://ticktick.blog.51cto.com/823160/1748506)
-
-> 箫鉴哥 2016-03-23 15:16:45
