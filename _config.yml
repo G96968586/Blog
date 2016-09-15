@@ -48,7 +48,7 @@ highlight:
 default_category: uncategorized
 category_map:
   Android: Android
-  H5&Web: Web
+  JavaScript: JavaScript
 tag_map:
 
 # Archives 默认值为2，如果这里都修改为1，相应页面就只会列出标题，而非全文
