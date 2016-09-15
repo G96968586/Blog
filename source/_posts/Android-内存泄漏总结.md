@@ -2,7 +2,7 @@
 title: Android 内存泄漏总结
 date: 2016-09-14 13:13:19
 categories: Android
-tags: [android,内存泄漏]
+tags: [Android,内存泄漏]
 ---
 ## Android 内存泄漏总结
 
