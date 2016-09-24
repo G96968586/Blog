@@ -2,7 +2,7 @@
 title: 浅谈 Android 组件 EditText 的 imeOptions 属性
 date: 2016-09-17 22:09:34
 categories: Android
-tags:
+tags: 转载
 ---
 我们有时为了提升app的用户体验，想在用户注册或者登录时，输入完最后一个输入框后，通过点击右下角的”开始“/”完成“可以直接注册或者登录，见图：
 ![](http://img.blog.csdn.net/20140830173833281?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvZzk2OTY4NTg2/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
