@@ -1,7 +1,7 @@
 ---
 title: 样式辅助文件 flexbox.scss
 date: 2016-09-25 23:50:21
-categories: H5
+categories: CSS
 tags: [样式,代码]
 ---
 ```scss
