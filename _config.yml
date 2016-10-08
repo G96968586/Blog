@@ -52,6 +52,7 @@ category_map:
   数据结构: DataStructure
   H5: H5
   Css: Css
+  WeeklyTask: WeeklyTask
 tag_map:
 
 # Archives 默认值为2，如果这里都修改为1，相应页面就只会列出标题，而非全文
