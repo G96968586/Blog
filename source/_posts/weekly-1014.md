@@ -9,6 +9,7 @@ tags: 每周总结
 ![img](http://alphayang.github.io/img/graldle_flat_dep_tree.png)
 
 特别是出现依赖冲突的时候，在build.gradle 中根据没有添加的包，此时可以在项目根目录下的 build.gradle 中添加如下代码：
+<!-- more -->
 
 ```groovy
 subprojects {

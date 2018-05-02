@@ -12,6 +12,7 @@ class TodoApp extends Component{
     }
 }
 ```
+<!-- more -->
 
 getInitialState 不会调用，浏览器输出了下面的信息，
 ```

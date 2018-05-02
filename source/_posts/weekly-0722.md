@@ -9,6 +9,7 @@ tags: 每周总结
 * [Android性能优化典范 - 第1季](http://hukai.me/android-performance-patterns/)
 
 * [Android APK安装包瘦身](http://hukai.me/android-tips-for-reduce-apk-size/)
+<!-- more -->
 
 * [移动端高清、多屏适配方案](http://www.html-js.com/article/Mobile-terminal-H5-mobile-terminal-HD-multi-screen-adaptation-scheme%203041)
 

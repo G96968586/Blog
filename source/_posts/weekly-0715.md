@@ -9,6 +9,7 @@ tags: 每周总结
 * [Web App防坑手册](https://segmentfault.com/a/1190000005864691)
 
 * Android 从代码源头上 findbugs [《AndroidCodeQuality》库](https://github.com/MasonLiuChn/AndroidCodeQuality)，尝试了一下，会导致编译变慢好多，所以还是不引入众包项目了。
+<!-- more -->
 
 * [dex-method-counts](https://github.com/mihaip/dex-method-counts),统计一个 apk 使用的方法数，它可以很详细的列出哪些包使用了多少方法，这个工具可以用来决定哪些类库可以在 65k 限制之下使用。
 

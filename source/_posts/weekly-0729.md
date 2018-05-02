@@ -15,6 +15,7 @@ remotes/origin/2.0.0  2787838 udpate
 remotes/origin/HEAD   -> origin/master
 remotes/origin/master 0840594 merge master and 1.0.0
 ```
+<!-- more -->
 
 如果想切换到 origin/2.0.0 的分支，我们可以
 ```shell

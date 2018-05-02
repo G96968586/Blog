@@ -1,7 +1,11 @@
 {
   "name": "hexo-site",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
+  "scripts": {
+    "start": "hexo clean && hexo g && hexo s",
+    "build": "hexo clean && hexo g && hexo d"
+  },
   "hexo": {
     "version": "3.2.2"
   },
@@ -14,6 +18,7 @@
     "hexo-generator-tag": "^0.2.0",
     "hexo-renderer-ejs": "^0.2.0",
     "hexo-renderer-marked": "^0.2.10",
+    "hexo-renderer-scss": "^1.2.0",
     "hexo-renderer-stylus": "^0.3.1",
     "hexo-server": "^0.2.0"
   }

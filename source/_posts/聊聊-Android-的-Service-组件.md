@@ -5,6 +5,7 @@ categories: Android
 tags:
 ---
 Android 开发的同学都知道，Android 有四大组件，分别是 [Activity](https://developer.android.com/reference/android/app/Activity.html)、[Service](https://developer.android.com/reference/android/app/Service.html)、[BroadcastReceiver](https://developer.android.com/reference/android/content/BroadcastReceiver.html) 和 [ContentProvider](https://developer.android.com/reference/android/content/ContentProvider.html)。在这里，我想跟大家聊一聊 Service 组件，我们从头开始，包括什么是 Service？Service 有什么作用？怎么使用它？需要关注哪些性能问题？什么情况下使用它最合适？好，废话少说，马上进入主题。
+<!-- more -->
 
 直译过来，Service 就是服务。它跟 Activity 不同，没有界面，不直接与用户进行交互，是一个可以在后台长时间运行的应用组件。服务可以由其他应用组件来启动，也可以由系统来启动。当用户从你的应用切换到其他应用后，我们的服务仍然可以在后台继续运行，甚至有些情况下，你退出了应用，服务仍能继续运行。最典型的例子就是音乐播放器了，当你退出应用后，音乐还能继续播放。又比如钉钉和微信，只要你没有在系统里禁止掉它们，即使杀掉它们的应用进程，你还是能收到别人给你发的消息。事实上，当你杀掉一个应用的进程后，该应用包括后台服务就彻底完了，只不过微信和钉钉有自启策略，又把服务拉起来了，这样你才能实时收到消息。
 

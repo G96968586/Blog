@@ -43,7 +43,6 @@ tags:
       Tag/ABIs : no ABIs.
      ...
      ```
-
 *    安装应用
 
     `adb install xxx.apk`

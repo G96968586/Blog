@@ -10,6 +10,8 @@ tags: 每周总结
 
 ![img](http://p3.pstatp.com/large/10f3000b2045b867f40e)
 
+<!-- more -->
+
 我使用的material颜色：
 
 Assert #BA68C8

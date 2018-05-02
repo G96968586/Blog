@@ -4,14 +4,15 @@ date: 2016-10-09 23:06:29
 categories: WeeklyTask
 tags: 每周总结
 ---
-* [在WebView自身打开链接 -- 关于WebViewClient类shouldOverrideUrlLoading的错误用法](http://www.codes51.com/article/detail_101733.html)
+* [在WebView自身打开链接 -- 关于 WebViewClient 类 shouldOverrideUrlLoading 的错误用法](http://www.codes51.com/article/detail_101733.html)
 
 * Android 24之后(即 Android N)，可以很方便的查看自己 app 是否打开了消息通知开关
-
+<!-- more -->
 详情：
  Now you can check it, as said in [this Google I/O 2016 video](https://www.youtube.com/watch?v=w45y_w4skKs&feature=youtu.be&list=PLOU2XLYxmsILe6_eGvDN3GyiodoV3qNSC&t=192)
 
 怎么使用呢？看下我的代码：
+
 ```Java
 boolean isOpen = NotificationManagerCompat.from(this).areNotificationsEnabled();
 ```
