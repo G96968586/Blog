@@ -5,6 +5,7 @@ categories: PWA
 tags: PWA
 ---
 本文主要介绍如何往 PWA 中添加推送通知功能，如果你有兴趣想了解更多关于 Web Push 技术，可以阅读这篇文章[《PWA系列 - Web Push 技术》]()，看一篇抵过 n 篇 Google 的文档。  
+<!-- more -->
 OK，下面我们进入主题。同样，你需要先做一些准备工作，可以参考这篇[《搭建你的第一个 PWA》]()文章。然后下载示例代码：  
 [download: push-notifications-master.zip]()
 

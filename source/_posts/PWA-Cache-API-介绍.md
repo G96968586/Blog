@@ -6,7 +6,7 @@ tags: PWA
 ---
 本文重点介绍 Cache 相关技术，不对 Cache 的背景做过多的介绍。希望通过该文能够让读者对 Cache 技术有更进一步的了解。  
 CacheStorage 同 App Cache、IndexedDB、LocalStorage 等一样，也是一种数据存储机制，但它能够提供精细的存储控制能力，常与 Fetch API 结合，让页端具备了完全操控请求，响应，缓存的能力，这正是页端一直非常缺乏的能力。在 PWA 中结合 Service Workers ，能够给应用带来更好的离线体验。
-
+<!-- more -->
 ## API 介绍
 CacheStorage 管理一系列 [Cache](https://developer.mozilla.org/en-US/docs/Web/API/Cache) 对象，它提供了多个 JS 方法用于操作 Cache 对象。Cache 跟 Worker 一样，也是暴露在 window 作用域下。下面我们开始介绍 CacheStorage、Cache 的 API 使用。
 ### CacheStorage

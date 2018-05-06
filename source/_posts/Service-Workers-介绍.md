@@ -6,6 +6,7 @@ tags: PWA
 ---
 
 PWA 具备丰富的离线体验、定期的后台同步以及原生应用的推送通知功能，离不开 Service Workers 在背后提供的技术基础。
+<!-- more -->
 ## 什么是 Service Workers
 Service Workers，即服务工作线程，是浏览器在后台独立于网页运行的脚本，它不受页面窗口生命周期的限制。因为 Service Workers 是一种事件驱动型的 worker，生命周期与页面无关. 关联页面未关闭时, 它也可以退出, 没有关联页面时, 它也可以启动。
 ## Service Workers 生命周期

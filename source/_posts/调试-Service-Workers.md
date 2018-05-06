@@ -5,6 +5,7 @@ categories: PWA
 tags: PWA
 ---
 这里我们来一起探讨如何使用 Chrome DevTools 中新增的 Application 面板调试和检查 Service Workers（服务工作线程）。
+<!-- more -->
 首先，你需要做一些准备工作，可以参考这篇[《搭建你的第一个 PWA》](https://lark.alipay.com/fgt-mobile/be9mcc/oeeik3)文章。为了便于调试，这里我们去 Google 实验室下载测试 Demo: [debugging-service-worker](https://github.com/googlecodelabs/debugging-service-workers/archive/master.zip)。
 解压 Demo，打开 Web Server，点击 Choose Folder 将当前文件路径定位到 Demo 目录下的 work 目录。
 

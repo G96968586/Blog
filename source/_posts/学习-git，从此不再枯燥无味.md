@@ -5,7 +5,7 @@ categories: Git
 tags: git
 ---
 最近在玩一个叫 “githug” 的游戏，看到这个名字，也许你马上就联想到了 git。是的，这是一个跟 git 相关的游戏，它把平常可能遇到的一些场景都实例化，变成一个一个的关卡，通过通关的形式，让你快速的学习 Git 并发挥其最大的威力。
-
+<!-- more -->
 
 Github 地址在这里：[《GitHug》](https://github.com/Gazler/githug)。
 

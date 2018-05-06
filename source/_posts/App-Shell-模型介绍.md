@@ -4,7 +4,8 @@ date: 2017-11-29 15:35:43
 categories: PWA
 tags: PWA
 ---
-App Shell 是构建 PWA 的一种常用的技术方法，同时，App Shell 也是提高页面首次渲染速度的主流方法之一。通过 App Shell 我们的应用（Web App）能够做到像 Native App 一样可靠、即时地加载到用户设备屏幕上，极大的提高了用户体验。  
+App Shell 是构建 PWA 的一种常用的技术方法，同时，App Shell 也是提高页面首次渲染速度的主流方法之一。通过 App Shell 我们的应用（Web App）能够做到像 Native App 一样可靠、即时地加载到用户设备屏幕上，极大的提高了用户体验。 
+<!-- more --> 
 其实 App Shell 就是一个能够被缓存的、轻量级的界面框架，它往往是纯 HTML 片段，只包括内联 CSS 和 base64 图片，不依赖于 JS 框架，可以在加载、解析、执行 JS 之前就渲染出来，几乎消除了白屏时间，大大提高用户体验。  
 结合服务工作线程 Service Worker 的 Cache API 缓存技术，App Shell 在没有网络或弱网络的情况下能表现的非常出色。它能够将一些初始 HTML 片段快速加载到屏幕上，并从缓存获取数据渲染到页面上，整个过程不需等待，带来了类似 Native App 的流畅过渡体验。  
 ![image | center](https://gw.alicdn.com/tfs/TB1CG2IdgMPMeJjy1XdXXasrXXa-743-550.png "")
