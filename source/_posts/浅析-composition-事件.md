@@ -13,7 +13,7 @@ tags: 前端与交互设计
 
 以微博为例子，我们知道，一条微博最多只能输入 140 个字，这就需要我们实时去计算输入框的字数，输入内容超过长度以后不允许输入，这是一个很常见的功能需求。但实际上，在输入法输入过程中和输入完成时的统计结果有可能是不一致的。
 
-见下面的 Demo [CodePan](https://codepen.io/g96968586/pen/aGQaNE)：
+见下面的 Demo ：
 
 ![img](https://gw.alicdn.com/tfs/TB1kiwJr7CWBuNjy0FaXXXUlXXa-2878-284.png)
 
@@ -51,5 +51,71 @@ $input.on('compositionstart compositionupdate compositionend', function(ev) {
     }
 })
 ```
+
+Demo 解决方案可参考 [CodePan](https://codepen.io/g96968586/pen/aGQaNE).
+
+React 代码：
+
+```
+class InputText extends React.Component {
+  state = {
+    textLength: 100,
+    value: '',
+  }
+  
+  onChange = (e) => {
+    const { isComposing } = e.nativeEvent;
+    const { value } = e.target;
+    const { textLength } = this.state;
+    let text = value.replace(/^\s+|\s+$/gmi, '');
+    this.setState({ value: text });
+    if (!isComposing) {
+      if (text.length > 100) {
+        text = text.substring(0, 100);
+      }
+      this.setState({
+        textLength: 100 - text.length,
+      })  
+    } 
+  }
+  
+  onComposition = (e) => {
+    if (e.type === 'compositionend') {
+      const { value } = e.target;
+      let text = value.replace(/^\s+|\s+$/gmi, '');
+      if (text.length > 100) {
+        text = text.substring(0, 100);
+      }
+      this.setState({
+        textLength: 100 - text.length,
+        value: text,
+      });
+    }
+  }
+  
+  render() {
+    return (
+      <div>
+        <div className="right">还可以输入 <strong>{this.state.textLength}</strong> 个字  </div>
+        <TextArea
+          placeholder="字数限制100"
+          autosize={{ minRows: 2, maxRows: 6 }}
+          onChange={this.onChange}
+          onCompositionStart={this.onComposition}
+          onCompositionUpdate={this.onComposition}
+          onCompositionEnd={this.onComposition}
+          value={this.state.value}
+        />
+      </div>
+    );
+  }
+}
+```
+
+效果图见下面：
+
+![img](https://gw.alicdn.com/tfs/TB16NiLsntYBeNjy1XdXXXXyVXa-2878-284.png)
+
+![img](https://gw.alicdn.com/tfs/TB14NiLsntYBeNjy1XdXXXXyVXa-2878-282.png)
 
 注意!!! 在移动端（ios7、android4.3）对于输入法几乎都不响应 keyup 事件。而开启计时器来做判断的话，在 IOS6 以下会有些莫名的问题。所以移动端慎用。
