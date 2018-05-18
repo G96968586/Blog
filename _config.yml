@@ -27,6 +27,7 @@ category_dir: categories #分类目录名
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
+about_dir: about #关于自己
 
 # Writing 文章布局、写作格式的定义
 new_post_name: :title.md # File name of new posts
@@ -55,6 +56,7 @@ category_map:
   WeeklyTask: WeeklyTask
   PWA: PWA
   Git: git
+  前端与交互设计: Front-end
 tag_map:
 
 # Archives 默认值为2，如果这里都修改为1，相应页面就只会列出标题，而非全文
